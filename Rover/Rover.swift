@@ -35,12 +35,16 @@ struct Rover {
         case .Left:
             if direction == .S {
                 direction = .E
+            } else if direction == .E {
+                direction = .N
             } else {
                 direction = .S
             }
         case .Right:
             if direction == .S {
                 direction = .W
+            } else if direction == .E {
+                direction = .S
             } else {
                 direction = .N
             }

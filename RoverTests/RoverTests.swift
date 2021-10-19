@@ -97,4 +97,22 @@ final class RoverTests: XCTestCase {
         //Then
         XCTAssertEqual(rover.getDirection(), Direction.E)
     }
+    
+    func testRoverRightMustChangeDirectionToSouthWhenInitialDirectionIsEast() {
+        //When
+        var rover = Rover(coordinates: coordinates, direction: Direction.E)
+        rover.move(command: .Right)
+        
+        //Then
+        XCTAssertEqual(rover.getDirection(), Direction.S)
+    }
+    
+    func testRoverLeftMustChangeDirectionToNorthWhenInitialDirectionIsEast() {
+        //When
+        var rover = Rover(coordinates: coordinates, direction: Direction.E)
+        rover.move(command: .Left)
+        
+        //Then
+        XCTAssertEqual(rover.getDirection(), Direction.N)
+    }
 }
