@@ -37,6 +37,8 @@ struct Rover {
                 direction = .E
             } else if direction == .E {
                 direction = .N
+            } else if direction == .N {
+                direction = .W
             } else {
                 direction = .S
             }
@@ -45,6 +47,8 @@ struct Rover {
                 direction = .W
             } else if direction == .E {
                 direction = .S
+            } else if direction == .N {
+                direction = .E
             } else {
                 direction = .N
             }
