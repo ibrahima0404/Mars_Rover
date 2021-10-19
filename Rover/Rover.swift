@@ -33,9 +33,17 @@ struct Rover {
         case .Backward:
             coordinates.y -= 1
         case .Left:
-            direction = .S
+            if direction == .S {
+                direction = .E
+            } else {
+                direction = .S
+            }
         case .Right:
-            direction = .N
+            if direction == .S {
+                direction = .W
+            } else {
+                direction = .N
+            }
         }
     }
 }
