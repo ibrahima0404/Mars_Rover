@@ -44,24 +44,6 @@ final class RoverTests: XCTestCase {
         }
     }
     
-    func testRoverFowardMustChangeYToTwoWhenInitialCoordinatesAreOneOne() {
-        //When
-        var rover = Rover(coordinates: coordinates, direction: Direction.W)
-        rover.move(command: .Foward)
-        
-        //Then
-        XCTAssertEqual(rover.getCoordinates().y, 2)
-    }
-    
-    func testRoverBackwardMustChangeYToZeroWhenInitialCoordinatesAreOneOne() {
-        //When
-        var rover = Rover(coordinates: coordinates, direction: Direction.W)
-        rover.move(command: .Backward)
-        
-        //Then
-        XCTAssertEqual(rover.getCoordinates().y, 0)
-    }
-    
     func testRoverRightMustChangeDirectionToNorthWhenInitialDirectionIsWest() {
         //When
         var rover = Rover(coordinates: coordinates, direction: Direction.W)
@@ -186,5 +168,24 @@ final class RoverTests: XCTestCase {
         
         //Then
         XCTAssertEqual(rover.getCoordinates().y, 2)
-    }    
+    }
+    
+    func testRoverFowardMustChangeYToTwoWhenDirectionIsNorth() {
+        //When
+        var rover = Rover(coordinates: coordinates, direction: Direction.N)
+        rover.move(command: .Foward)
+        
+        //Then
+        XCTAssertEqual(rover.getCoordinates().y, 2)
+    }
+    
+    func testRoverBackwardMustChangeYToZeroWhenDirectionIsNorth() {
+        //When
+        var rover = Rover(coordinates: coordinates, direction: Direction.N)
+        rover.move(command: .Backward)
+        
+        //Then
+        XCTAssertEqual(rover.getCoordinates().y, 0)
+    }
+
 }
