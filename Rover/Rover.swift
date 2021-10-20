@@ -5,7 +5,7 @@
 //  Created by Ibrahima KH GUEYE on 16/10/2021.
 //
 
-struct Rover {
+class Rover {
     private var direction: Direction
     private var coordinates: Coordinates
     
@@ -14,7 +14,7 @@ struct Rover {
         self.coordinates = coordinates
     }
     
-    init(coordinates: Coordinates, direction: Direction) {
+    convenience init(coordinates: Coordinates, direction: Direction) {
         self.init(coordinates, direction)
     }
     
@@ -26,48 +26,64 @@ struct Rover {
         return coordinates
     }
     
-    mutating func move(command: Command) {
+    func move(command: Command) {
         switch command {
         case .Foward:
-            if direction == .W {
-                coordinates.x -= 1
-            } else if direction == .E {
-                coordinates.x += 1
-            } else if direction == .S {
-                coordinates.y -= 1
-            } else {
-                coordinates.y += 1
-            }
+            moveForward()
         case .Backward:
-            if direction == .W {
-                coordinates.x += 1
-            } else if direction == .E {
-                coordinates.x -= 1
-            } else if direction == .S {
-                coordinates.y += 1
-            } else {
-                coordinates.y -= 1
-            }
+            moveBackward()
         case .Left:
-            if direction == .S {
-                direction = .E
-            } else if direction == .E {
-                direction = .N
-            } else if direction == .N {
-                direction = .W
-            } else {
-                direction = .S
-            }
+            turnLeft()
         case .Right:
-            if direction == .S {
-                direction = .W
-            } else if direction == .E {
-                direction = .S
-            } else if direction == .N {
-                direction = .E
-            } else {
-                direction = .N
-            }
+            turnRight()
+        }
+    }
+    
+    fileprivate func moveForward() {
+        if direction == .W {
+            coordinates.x -= 1
+        } else if direction == .E {
+            coordinates.x += 1
+        } else if direction == .S {
+            coordinates.y -= 1
+        } else {
+            coordinates.y += 1
+        }
+    }
+    
+    fileprivate func moveBackward() {
+        if direction == .W {
+            coordinates.x += 1
+        } else if direction == .E {
+            coordinates.x -= 1
+        } else if direction == .S {
+            coordinates.y += 1
+        } else {
+            coordinates.y -= 1
+        }
+    }
+    
+    fileprivate func turnLeft() {
+        if direction == .S {
+            direction = .E
+        } else if direction == .E {
+            direction = .N
+        } else if direction == .N {
+            direction = .W
+        } else {
+            direction = .S
+        }
+    }
+    
+    fileprivate func turnRight() {
+        if direction == .S {
+            direction = .W
+        } else if direction == .E {
+            direction = .S
+        } else if direction == .N {
+            direction = .E
+        } else {
+            direction = .N
         }
     }
 }
