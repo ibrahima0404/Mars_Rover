@@ -55,19 +55,11 @@ class Rover {
         if direction == .W {
             coordinates.x += 1
         } else if direction == .E {
-            if coordinates.x == 1 {
-                coordinates.x = 5
-            } else {
-                coordinates.x -= 1
-            }
+            coordinates.x -= 1
         } else if direction == .S {
             coordinates.y += 1
         } else {
-            if coordinates.y == 1 {
-                coordinates.y = 5
-            } else {
-                coordinates.y -= 1
-            }
+            coordinates.y -= 1
         }
     }
     

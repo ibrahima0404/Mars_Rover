@@ -6,6 +6,17 @@
 //
 
 struct Coordinates {
-    var x: Int
-    var y: Int
+    private let PlanetSize = 5
+    
+    var x: Int {
+        didSet {
+            x = x < 1 ? PlanetSize : x
+        }
+    }
+    
+    var y: Int {
+        didSet {
+            y = y < 1 ? PlanetSize : y
+        }
+    }
 }
