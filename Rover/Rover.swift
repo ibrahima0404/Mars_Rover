@@ -29,9 +29,17 @@ struct Rover {
     mutating func move(command: Command) {
         switch command {
         case .Foward:
-            coordinates.y += 1
+            if direction == .W {
+                coordinates.x += 1
+            } else {
+                coordinates.y += 1
+            }
         case .Backward:
-            coordinates.y -= 1
+            if direction == .W {
+                coordinates.x -= 1
+            } else {
+                coordinates.y -= 1
+            }
         case .Left:
             if direction == .S {
                 direction = .E
