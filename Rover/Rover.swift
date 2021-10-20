@@ -30,13 +30,13 @@ struct Rover {
         switch command {
         case .Foward:
             if direction == .W {
-                coordinates.x += 1
+                coordinates.x -= 1
             } else {
                 coordinates.y += 1
             }
         case .Backward:
             if direction == .W {
-                coordinates.x -= 1
+                coordinates.x += 1
             } else {
                 coordinates.y -= 1
             }
