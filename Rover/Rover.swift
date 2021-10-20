@@ -33,6 +33,8 @@ struct Rover {
                 coordinates.x -= 1
             } else if direction == .E {
                 coordinates.x += 1
+            } else if direction == .S {
+                coordinates.y -= 1
             } else {
                 coordinates.y += 1
             }
@@ -41,6 +43,8 @@ struct Rover {
                 coordinates.x += 1
             } else if direction == .E {
                 coordinates.x -= 1
+            } else if direction == .S {
+                coordinates.y += 1
             } else {
                 coordinates.y -= 1
             }
