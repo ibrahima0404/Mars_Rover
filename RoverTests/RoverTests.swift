@@ -151,4 +151,22 @@ final class RoverTests: XCTestCase {
         //Then
         XCTAssertEqual(rover.getCoordinates().x, 2)
     }
+    
+    func testRoverFowardMustChangeXToTwoWhenDirectionIsEast() {
+        //When
+        var rover = Rover(coordinates: coordinates, direction: Direction.E)
+        rover.move(command: .Foward)
+        
+        //Then
+        XCTAssertEqual(rover.getCoordinates().x, 2)
+    }
+    
+    func testRoverBackwardMustChangeXToZeroWhenDirectionIsEast() {
+        //When
+        var rover = Rover(coordinates: coordinates, direction: Direction.E)
+        rover.move(command: .Backward)
+        
+        //Then
+        XCTAssertEqual(rover.getCoordinates().x, 0)
+    }
 }

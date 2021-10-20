@@ -31,12 +31,16 @@ struct Rover {
         case .Foward:
             if direction == .W {
                 coordinates.x -= 1
+            } else if direction == .E {
+                coordinates.x += 1
             } else {
                 coordinates.y += 1
             }
         case .Backward:
             if direction == .W {
                 coordinates.x += 1
+            } else if direction == .E {
+                coordinates.x -= 1
             } else {
                 coordinates.y -= 1
             }
