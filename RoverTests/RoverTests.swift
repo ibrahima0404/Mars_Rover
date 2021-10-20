@@ -187,4 +187,22 @@ final class RoverTests: XCTestCase {
         //Then
         XCTAssertEqual(rover.getCoordinates().y, 0)
     }
+    
+    func testRoverBackwardOnXAxesMustChangeXToFiveWhenPositionIsOneOne() {
+        //When
+        let rover = Rover(coordinates: coordinates, direction: Direction.E)
+        rover.move(command: .Backward)
+        
+        //Then
+        XCTAssertEqual(rover.getCoordinates().x, 5)
+    }
+    
+    func testRoverBackwardOnYAxesMustChangeYToFiveWhenPositionIsOneOne() {
+        //When
+        let rover = Rover(coordinates: coordinates, direction: Direction.N)
+        rover.move(command: .Backward)
+        
+        //Then
+        XCTAssertEqual(rover.getCoordinates().y, 5)
+    }
 }
