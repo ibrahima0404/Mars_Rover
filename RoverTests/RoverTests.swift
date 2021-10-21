@@ -10,13 +10,23 @@ import XCTest
 
 final class RoverTests: XCTestCase {
     private let coordinates = Coordinates(x: 1, y: 1)
-    
+    let detector = RoverDetector()
+
     func testRoverMustBeNotNilAfterInstantiation() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.W)
+        let rover = Rover(coordinates: coordinates, direction: Direction.W, detector: detector)
         
         //Then
         XCTAssertNotNil(rover, "Rover must be not nil")
+    }
+    
+    func testRoverMustHaveADetector() {
+        //When
+        let rover = Rover(coordinates: coordinates, direction: Direction.N, detector: detector)
+        rover.move(command: .Backward)
+        
+        //Then
+        XCTAssertNotNil(rover.getDetector(), "Rover detector must be not nil")
     }
     
     func testRoverMustKeepInitialDirectionAfterIntantiation() {
@@ -24,7 +34,7 @@ final class RoverTests: XCTestCase {
   
         for direction in allDirections {
             //When
-            let rover = Rover(coordinates: coordinates, direction: direction)
+            let rover = Rover(coordinates: coordinates, direction: direction, detector: detector)
             
             //Then
             XCTAssertEqual(rover.getDirection(), direction)
@@ -36,7 +46,7 @@ final class RoverTests: XCTestCase {
         
         for coordinates in allCoordinates {
             //When
-            let rover = Rover(coordinates: coordinates, direction: Direction.W)
+            let rover = Rover(coordinates: coordinates, direction: Direction.W, detector: detector)
             
             //Then
             XCTAssertEqual(rover.getCoordinates().x, coordinates.x)
@@ -46,7 +56,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverRightMustChangeDirectionToNorthWhenInitialDirectionIsWest() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.W)
+        let rover = Rover(coordinates: coordinates, direction: Direction.W, detector: detector)
         rover.move(command: .Right)
         
         //Then
@@ -55,7 +65,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverLeftMustChangeDirectionToSouthWhenInitialDirectionIsWest() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.W)
+        let rover = Rover(coordinates: coordinates, direction: Direction.W, detector: detector)
         rover.move(command: .Left)
         
         //Then
@@ -64,7 +74,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverRightMustChangeDirectionToWestWhenInitialDirectionIsSouth() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.S)
+        let rover = Rover(coordinates: coordinates, direction: Direction.S, detector: detector)
         rover.move(command: .Right)
         
         //Then
@@ -73,7 +83,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverLeftMustChangeDirectionToEastWhenInitialDirectionIsSouth() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.S)
+        let rover = Rover(coordinates: coordinates, direction: Direction.S, detector: detector)
         rover.move(command: .Left)
         
         //Then
@@ -82,7 +92,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverRightMustChangeDirectionToSouthWhenInitialDirectionIsEast() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.E)
+        let rover = Rover(coordinates: coordinates, direction: Direction.E, detector: detector)
         rover.move(command: .Right)
         
         //Then
@@ -91,7 +101,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverLeftMustChangeDirectionToNorthWhenInitialDirectionIsEast() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.E)
+        let rover = Rover(coordinates: coordinates, direction: Direction.E, detector: detector)
         rover.move(command: .Left)
         
         //Then
@@ -100,7 +110,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverRightMustChangeDirectionToEastWhenInitialDirectionIsNorth() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.N)
+        let rover = Rover(coordinates: coordinates, direction: Direction.N, detector: detector)
         rover.move(command: .Right)
         
         //Then
@@ -109,7 +119,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverLeftMustChangeDirectionToWestWhenInitialDirectionIsNorth() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.N)
+        let rover = Rover(coordinates: coordinates, direction: Direction.N, detector: detector)
         rover.move(command: .Left)
         
         //Then
@@ -118,7 +128,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverFowardMustChangeXToZeroWhenDirectionIsWest() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.W)
+        let rover = Rover(coordinates: coordinates, direction: Direction.W, detector: detector)
         rover.move(command: .Foward)
         
         //Then
@@ -127,7 +137,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverBackwardMustChangeXToTwoWhenDirectionIsWest() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.W)
+        let rover = Rover(coordinates: coordinates, direction: Direction.W, detector: detector)
         rover.move(command: .Backward)
         
         //Then
@@ -136,7 +146,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverFowardMustChangeXToTwoWhenDirectionIsEast() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.E)
+        let rover = Rover(coordinates: coordinates, direction: Direction.E, detector: detector)
         rover.move(command: .Foward)
         
         //Then
@@ -145,7 +155,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverBackwardMustChangeXToZeroWhenDirectionIsEast() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.E)
+        let rover = Rover(coordinates: coordinates, direction: Direction.E, detector: detector)
         rover.move(command: .Backward)
         
         //Then
@@ -154,7 +164,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverFowardMustChangeYToZeroWhenDirectionIsSouth() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.S)
+        let rover = Rover(coordinates: coordinates, direction: Direction.S, detector: detector)
         rover.move(command: .Foward)
         
         //Then
@@ -163,7 +173,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverBackwardMustChangeYToTwoWhenDirectionIsSouth() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.S)
+        let rover = Rover(coordinates: coordinates, direction: Direction.S, detector: detector)
         rover.move(command: .Backward)
         
         //Then
@@ -172,7 +182,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverFowardMustChangeYToTwoWhenDirectionIsNorth() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.N)
+        let rover = Rover(coordinates: coordinates, direction: Direction.N, detector: detector)
         rover.move(command: .Foward)
         
         //Then
@@ -181,7 +191,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverBackwardMustChangeYToZeroWhenDirectionIsNorth() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.N)
+        let rover = Rover(coordinates: coordinates, direction: Direction.N, detector: detector)
         rover.move(command: .Backward)
         
         //Then
@@ -190,7 +200,7 @@ final class RoverTests: XCTestCase {
     
     func testRoverBackwardOnXAxesMustChangeXToFiveWhenPositionIsOneOne() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.E)
+        let rover = Rover(coordinates: coordinates, direction: Direction.E, detector: detector)
         rover.move(command: .Backward)
         
         //Then
@@ -199,19 +209,10 @@ final class RoverTests: XCTestCase {
     
     func testRoverBackwardOnYAxesMustChangeYToFiveWhenPositionIsOneOne() {
         //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.N)
+        let rover = Rover(coordinates: coordinates, direction: Direction.N, detector: detector)
         rover.move(command: .Backward)
         
         //Then
         XCTAssertEqual(rover.getCoordinates().y, 5)
-    }
-    
-    func testRoverMustHaveADetector() {
-        //When
-        let rover = Rover(coordinates: coordinates, direction: Direction.N)
-        rover.move(command: .Backward)
-        
-        //Then
-        XCTAssertTrue((rover as Any) is Detector)
     }
 }

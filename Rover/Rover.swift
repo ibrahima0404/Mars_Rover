@@ -5,21 +5,20 @@
 //  Created by Ibrahima KH GUEYE on 16/10/2021.
 //
 
-class Rover: Detector {
-    func probe() -> Bool {
-        true
-    }
+class Rover {
+    private var detector: Detector
     
     private var direction: Direction
     private var coordinates: Coordinates
     
-    private init(_ coordinates: Coordinates, _ direction: Direction) {
+    private init(_ coordinates: Coordinates, _ direction: Direction, _ detector: Detector) {
         self.direction = direction
         self.coordinates = coordinates
+        self.detector = detector
     }
     
-    convenience init(coordinates: Coordinates, direction: Direction) {
-        self.init(coordinates, direction)
+    convenience init(coordinates: Coordinates, direction: Direction, detector: Detector) {
+        self.init(coordinates, direction, detector)
     }
     
     func getDirection() -> Direction {
@@ -28,6 +27,10 @@ class Rover: Detector {
     
     func getCoordinates() -> Coordinates {
         return coordinates
+    }
+    
+    func getDetector() -> Detector {
+        return detector
     }
     
     func move(command: Command) {

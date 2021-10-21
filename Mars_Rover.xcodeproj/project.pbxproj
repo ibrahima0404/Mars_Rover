@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		8630A1A327205F5600123912 /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8630A1A227205F5600123912 /* Detector.swift */; };
+		8630A1A527215BA200123912 /* RoverDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8630A1A427215BA200123912 /* RoverDetector.swift */; };
 		8675ACA7271A368B00529558 /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675ACA6271A368B00529558 /* Rover.swift */; };
 		8675ACAC271A36F900529558 /* RoverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675ACAA271A36EF00529558 /* RoverTests.swift */; };
 		8675ACAF271A384900529558 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675ACAE271A384900529558 /* Direction.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		8630A1A227205F5600123912 /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
+		8630A1A427215BA200123912 /* RoverDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDetector.swift; sourceTree = "<group>"; };
 		8675ACA6271A368B00529558 /* Rover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
 		8675ACAA271A36EF00529558 /* RoverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverTests.swift; sourceTree = "<group>"; };
 		8675ACAE271A384900529558 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				8679C4F3271AE2B000220719 /* Coordinates.swift */,
 				8679C4F5271AF75E00220719 /* Command.swift */,
 				8630A1A227205F5600123912 /* Detector.swift */,
+				8630A1A427215BA200123912 /* RoverDetector.swift */,
 			);
 			path = Rover;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				8630A1A527215BA200123912 /* RoverDetector.swift in Sources */,
 				8630A1A327205F5600123912 /* Detector.swift in Sources */,
 				8675ACA7271A368B00529558 /* Rover.swift in Sources */,
 				8675ACAF271A384900529558 /* Direction.swift in Sources */,
