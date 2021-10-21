@@ -205,4 +205,13 @@ final class RoverTests: XCTestCase {
         //Then
         XCTAssertEqual(rover.getCoordinates().y, 5)
     }
+    
+    func testRoverMustHaveADetector() {
+        //When
+        let rover = Rover(coordinates: coordinates, direction: Direction.N)
+        rover.move(command: .Backward)
+        
+        //Then
+        XCTAssertTrue((rover as Any) is Detector)
+    }
 }

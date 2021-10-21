@@ -5,7 +5,11 @@
 //  Created by Ibrahima KH GUEYE on 16/10/2021.
 //
 
-class Rover {
+class Rover: Detector {
+    func probe() -> Bool {
+        true
+    }
+    
     private var direction: Direction
     private var coordinates: Coordinates
     
