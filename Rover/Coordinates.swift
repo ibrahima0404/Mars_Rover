@@ -7,16 +7,17 @@
 
 struct Coordinates {
     private let PlanetSize = 5
+    private let PlanetMinPosition = 1
     
     var x: Int {
         didSet {
-            x = x < 1 ? PlanetSize : x
+            x = x < PlanetMinPosition ? PlanetSize : x > PlanetSize ? PlanetMinPosition : x
         }
     }
     
     var y: Int {
         didSet {
-            y = y < 1 ? PlanetSize : y
+            y = y < PlanetMinPosition ? PlanetSize : y > PlanetSize ? PlanetMinPosition : y
         }
     }
 }

@@ -215,4 +215,26 @@ final class RoverTests: XCTestCase {
         //Then
         XCTAssertEqual(rover.getCoordinates().y, 5)
     }
+    
+    func testRoverForwardOnXAxesMustChangeXToOneWhenPositionIsFiveFive() {
+        //Given
+        let rover = Rover(coordinates: Coordinates(x: 5, y: 5), direction: Direction.E, detector: detector)
+        
+        //When
+        rover.move(command: .Forward)
+        
+        //Then
+        XCTAssertEqual(rover.getCoordinates().x, 1)
+    }
+    
+    func testRoverForwardOnYAxesMustChangeYToOneWhenPositionIsFiveFive() {
+        //Given
+        let rover = Rover(coordinates: Coordinates(x: 5, y: 5), direction: Direction.N, detector: detector)
+
+        //When
+        rover.move(command: .Forward)
+
+        //Then
+        XCTAssertEqual(rover.getCoordinates().y, 1)
+    }
 }
