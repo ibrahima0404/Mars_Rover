@@ -23,6 +23,8 @@
 /* Begin PBXBuildFile section */
 		8630A1A327205F5600123912 /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8630A1A227205F5600123912 /* Detector.swift */; };
 		8630A1A527215BA200123912 /* RoverDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8630A1A427215BA200123912 /* RoverDetector.swift */; };
+		8630A1B1272184E900123912 /* RoverObstacleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8630A1A627217AB000123912 /* RoverObstacleTests.swift */; };
+		8630A1B32721891600123912 /* DetectorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8630A1A827217D8800123912 /* DetectorMock.swift */; };
 		8675ACA7271A368B00529558 /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675ACA6271A368B00529558 /* Rover.swift */; };
 		8675ACAC271A36F900529558 /* RoverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675ACAA271A36EF00529558 /* RoverTests.swift */; };
 		8675ACAF271A384900529558 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675ACAE271A384900529558 /* Direction.swift */; };
@@ -52,6 +54,8 @@
 /* Begin PBXFileReference section */
 		8630A1A227205F5600123912 /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
 		8630A1A427215BA200123912 /* RoverDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDetector.swift; sourceTree = "<group>"; };
+		8630A1A627217AB000123912 /* RoverObstacleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverObstacleTests.swift; sourceTree = "<group>"; };
+		8630A1A827217D8800123912 /* DetectorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectorMock.swift; sourceTree = "<group>"; };
 		8675ACA6271A368B00529558 /* Rover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
 		8675ACAA271A36EF00529558 /* RoverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverTests.swift; sourceTree = "<group>"; };
 		8675ACAE271A384900529558 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
@@ -97,7 +101,9 @@
 		8675ACAD271A36FE00529558 /* RoverTests */ = {
 			isa = PBXGroup;
 			children = (
+				8630A1A827217D8800123912 /* DetectorMock.swift */,
 				8675ACAA271A36EF00529558 /* RoverTests.swift */,
+				8630A1A627217AB000123912 /* RoverObstacleTests.swift */,
 			);
 			path = RoverTests;
 			sourceTree = "<group>";
@@ -242,6 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				8630A1B1272184E900123912 /* RoverObstacleTests.swift in Sources */,
+				8630A1B32721891600123912 /* DetectorMock.swift in Sources */,
 				8675ACAC271A36F900529558 /* RoverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

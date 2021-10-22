@@ -6,7 +6,7 @@
 //
 
 enum Command {
-    case Foward
+    case Forward
     case Backward
     case Left
     case Right

@@ -6,7 +6,7 @@
 //
 
 class Rover {
-    private var detector: Detector?
+    private var detector: Detector
     
     private var direction: Direction
     private var coordinates: Coordinates
@@ -29,15 +29,21 @@ class Rover {
         return coordinates
     }
     
-    func getDetector() -> Detector? {
+    func getDetector() -> Detector {
         return detector
     }
     
     func move(command: Command) {
         switch command {
-        case .Foward:
+        case .Forward:
+            if (detector.probe()) {
+                return
+            }
             moveForward()
         case .Backward:
+            if (detector.probe()) {
+                return
+            }
             moveBackward()
         case .Left:
             turnLeft()
