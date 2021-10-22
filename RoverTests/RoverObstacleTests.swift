@@ -10,7 +10,7 @@ import XCTest
 
 final class RoverObstacleTests: XCTestCase {
     private let coordinates = Coordinates(x: 1, y: 1)
-    let detector = DetectorMock(mockProbe: true)
+    private let detector = DetectorMock(mockProbe: true)
     
     func testRoverMustHaveADetector() {
         //Given
